@@ -34,6 +34,18 @@ BinarySearchTree::~BinarySearchTree()
 
 void insert_helper(Node **root, std::string word)
 {
+
+	if (*root == nullptr) {
+		*root = new Node;
+		*(root->left) = *(root->right) = nullptr;
+		*(root->word) = word;
+	}
+	else if ((*root)->word < word) {
+		insert_helper(*(root->left), word);
+	}
+	else {
+		insert_helper(*(root->right), word);
+	}
 	/*
 	if the root node is a nullpointer
 		insert at root
@@ -44,6 +56,8 @@ void insert_helper(Node **root, std::string word)
 		"" replace left w/ right
 		call insert_helper on right.
 	*/
+
+
 }
 
 // **Methods**
