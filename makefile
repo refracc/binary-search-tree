@@ -1,13 +1,16 @@
 clean:
-	rm -rf *.*o*
-	rm -rf *.exe
-	rm -rf *.a*
-	
-build: clean
-	clang++ -shared -undefined dynamic_lookup -std=c++11 -o bst.so BinarySearchTree.cpp
-	clang++ test.cpp bst.so -std=c++11 -o test
-	
-exe:
-	./test
+	del *.a*
+	del *.exe
+	del *.o*
+	del *.lib
 
+library: clean
+	cl /c BinarySearchTree.cpp
+	lib /out:BinarySearchTree.lib BinarySearchTree.obj
+	del BinarySearchTree.obj
 
+build: library
+	cl /c test.cpp
+	link test.obj BinarySearchTree.lib
+	del test.obj
+	test
