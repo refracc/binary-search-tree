@@ -51,9 +51,7 @@ void insert_helper(Node **root, std::string word)
 // **Methods**
 void BinarySearchTree::insert(std::string word)
 {
-	Node **n = new Node;
-	
-	insert_helper(n, word);
+	insert_helper(&root, word);
 }
 
 bool BinarySearchTree::exists(std::string word) const
