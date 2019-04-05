@@ -120,10 +120,10 @@ bool BinarySearchTree::exists(std::string word) const
 		if (foo->word == word) // If the node's word matches the word being passed in
 		{
 			return true;
-		} else if (foo->word < word) // If the node's word is less
+		} else if (word > foo->word) // If the word is greater than the current node's
 		{
 			foo = foo->right; // Change to the right node.
-		} else if (foo->word > word) // If the node's word is greater.
+		} else if (word < foo->word) // If the word is less than the current node's
 		{
 			foo = foo->left; // Change to the left node.
 		}
@@ -221,11 +221,11 @@ BinarySearchTree& BinarySearchTree::operator=(const BinarySearchTree &rhs)
 {
 	if (this != &rhs)
 	{
-		rem(this->root);
-		this->root = cpy_help(rhs.root);
-		return *this;
+		rem(this->root); // Delete and free up the current node from memory.
+		this->root = cpy_help(rhs.root); // The new root node is equal to the copied tree's root.
+		return *this; // Returns a reference to the modified tree.
 	}
 	else {
-		return *this;
+		return *this; // Returns a reference to the modified tree.
 	}
 }
