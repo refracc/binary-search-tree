@@ -64,7 +64,7 @@ BinarySearchTree::BinarySearchTree()
 // Adds in a single word to the tree.
 BinarySearchTree::BinarySearchTree(std::string word)
 {
-	insert(word);// Use the insert function to add the new word
+	insert(word); // Use the insert function to add the new word
 }
 
  // Takes in a tree to copy over.
@@ -133,7 +133,7 @@ bool BinarySearchTree::exists(std::string word) const
 	return false;
 }
 
-/* 
+/*
  * Prints the words in a tree in alphabetical order.
  * Parameters: *root, a pointer to the root node of the tree to print.
  */
@@ -157,7 +157,7 @@ string preorder_helper(Node *root)
 	}else
 	{
 		return root->word + " " + preorder_helper(root->left) + preorder_helper(root->right); // Prints root word, left word, then right word.
-	}  
+	}
 }
 
 string postorder_helper(Node *root)
@@ -181,7 +181,7 @@ std::string BinarySearchTree::inorder() const
 	{
 		words.pop_back(); // Remove final space from the string.
 	}
-	return words; 
+	return words;
 }
 
 
@@ -207,9 +207,8 @@ std::string BinarySearchTree::postorder() const
 	}
 	return words;
 }
-    
+
 // **Operator overloads**
-    
 
 BinarySearchTree& BinarySearchTree::operator+(std::string word)
 {
